@@ -127,7 +127,7 @@
 
       </section>
       <section>
-        <v-parallax src="./assets/bottomsmoke.jpeg" height="380">
+        <v-parallax src="./assets/bottomsmoke.jpeg" :height="paralaxHeight">
         <h2 class="text-center headline mt-5">Examples Of Work</h2>
 
          <v-layout align-center justify-space-around row fill-height class="mt-5" text-center wrap>
@@ -142,9 +142,9 @@
           </a>
       </v-flex>
       <v-flex xs12 md3>
-        <v-card dark color="secondary">
-          <v-card-text>project palceholder</v-card-text>
-        </v-card>
+          <a href="https://github.com/zachariahc/firebase-function-twilio/blob/master/functions/index.js" target="_blank">
+            <img src="./assets/twilio-thumbnail.png" style="height: 225px;"/>
+          </a>
       </v-flex>
     </v-layout>
         </v-parallax>
@@ -228,8 +228,14 @@ export default {
   data() {
     return {
       title: "Z/C",
-      test: false
+      test: false,
     };
+  },
+  computed: {
+    paralaxHeight: function(){
+      const paralaxControl = this.$vuetify.breakpoint.smAndDown ? 1000 : 400
+      return paralaxControl
+    }
   },
   methods: {
     mouseIn(){
@@ -238,6 +244,9 @@ export default {
     mouseOut(){
       this.test = false
     }
+  },
+  mounted(){
+    console.log(console.log(this.$vuetify.breakpoint.smAndDown))
   }
 };
 </script>
