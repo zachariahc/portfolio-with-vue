@@ -245,9 +245,6 @@ export default {
       this.test = false
     }
   },
-  mounted(){
-    console.log(console.log(this.$vuetify.breakpoint.smAndDown))
-  }
 };
 </script>
 
