@@ -132,14 +132,14 @@
 
          <v-layout align-center justify-space-around row fill-height class="mt-5" text-center wrap>
       <v-flex xs12 md3>
-        <v-card dark color="secondary">
-          <v-card-text>project placeholder</v-card-text>
-        </v-card>
+          <a href="https://tesla-mockup.firebaseapp.com/" target="_blank">
+            <img src="./assets/tesla-mockup.png" style="height: 225px;"/>
+          </a>
       </v-flex>
       <v-flex xs12 md3>
-        <v-card dark color="secondary">
-          <v-card-text>project placeholder</v-card-text>
-        </v-card>
+          <a href="https://transit-41e17.firebaseapp.com/" target="_blank">
+            <img src="./assets/transit-bandit.png" style="height: 225px;"/>
+          </a>
       </v-flex>
       <v-flex xs12 md3>
         <v-card dark color="secondary">
