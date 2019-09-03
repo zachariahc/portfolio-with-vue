@@ -313,7 +313,7 @@ export default {
       valid: true,
       snackbar: false,
       snackBarText: "Thanks. I'll be in touch shortly!",
-      timeout: 2000,
+      timeout: 3000,
       form: {
         name: "",
         reply_to: "",
