@@ -1,3 +1,4 @@
+
 <template>
   <v-app light>
     <v-toolbar>
@@ -231,6 +232,7 @@
       </v-footer>
     </v-content>
     <!-- CONTACT FORM -->
+
     <v-row justify="center">
       <v-dialog v-model="dialog" persistent max-width="600px">
         <v-card>
@@ -239,29 +241,61 @@
           </v-card-title>
           <v-card-text>
             <v-container>
+
+              <v-form 
+              ref="form"
+              v-model="valid"
+              >
               <v-row>
                 <v-col cols="12" sm="12" md="4">
-                  <v-text-field label="Name*" required v-model="form.name"></v-text-field>
+                  <v-text-field 
+                  label="Name*" 
+                  :rules="nameRules"
+                  v-model="form.name"
+                  ></v-text-field>
                 </v-col>
                 <v-col cols="12" sm="12" md="4">
-                  <v-text-field label="Email*" required v-model="form.reply_to"></v-text-field>
+                  <v-text-field 
+                  label="Email*"
+                  :rules="emailRules" 
+                  v-model="form.reply_to"
+                  ></v-text-field>
                 </v-col>
 
                 <v-col cols="12">
-                  <v-text-field label="Message*" required v-model="form.message"></v-text-field>
+                  <v-text-field 
+                  label="Message*" 
+                  :rules="messageRules"
+                  v-model="form.message"></v-text-field>
                 </v-col>
               </v-row>
+              </v-form>
+
             </v-container>
             <small>*indicates required field</small>
           </v-card-text>
           <v-card-actions>
             <div class="flex-grow-1"></div>
             <v-btn color="blue darken-1" text @click="dialog = false">Close</v-btn>
-            <v-btn color="blue darken-1" text @click="getFormData">Send</v-btn>
+            <v-btn color="blue darken-1" :disabled="!valid" text @click="getFormData">Send</v-btn>
           </v-card-actions>
         </v-card>
       </v-dialog>
-    </v-row>å
+    </v-row>
+   <!-- Snackbar confirmation message -->
+    <v-snackbar
+      v-model="snackbar"
+      :timeout="timeout"
+    >
+      {{ snackBarText }}
+      <v-btn
+        color="blue"
+        text
+        @click="snackbar = false"
+      >
+        Close
+      </v-btn>
+    </v-snackbar>
   </v-app>
 </template>
 
@@ -275,11 +309,28 @@ export default {
       title: "Z/C",
       test: false,
       dialog: false,
+      sendButton: false,
+      valid: true,
+      snackbar: false,
+      snackBarText: "Thanks. I'll be in touch shortly!",
+      timeout: 2000,
       form: {
         name: "",
         reply_to: "",
         message: ""
-      }
+      },
+      nameRules: [
+        v => !!v || 'Name is required',
+        v => (v && v.length <= 10) || 'Name must be less than 10 characters',
+      ],
+      emailRules: [
+        v => !!v || 'E-mail is required',
+        v => /.+@.+\..+/.test(v) || 'E-mail must be valid',
+      ],
+      messageRules: [
+        v => !!v || 'Please include a message',
+        v => (v && v.length <= 500) || 'Please limit message to 500 characters.',
+      ],
     };
   },
   computed: {
@@ -289,6 +340,11 @@ export default {
     }
   },
   methods: {
+    validate () {
+      if (this.$refs.form.validate()) {
+          this.snackbar = true
+        }
+      },
     mouseIn() {
       this.test = true;
     },
@@ -297,15 +353,16 @@ export default {
     },
     getFormData() {
       const formData = this.form;
-      this.dialog = false;
       try {
         axios.post(
           "https://dwxt1f2tse.execute-api.us-east-1.amazonaws.com/dev/static-site-mailer",
           formData
         );
       } catch (e) {
-        console.log(e);
+        console.error(e);
       }
+      this.dialog = false;
+      this.snackbar = true;
     }
   }
 };
