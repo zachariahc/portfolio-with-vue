@@ -15,12 +15,13 @@
             <h1 class="white--text mb-2 display-1 text-center">Zachariah Crowell</h1>
             <div class="subheading mb-4 text-center">Let's build something</div>
             <!-- save button to fire lambda form submit -->
-            <!-- <v-btn
+            <v-btn
               class="mt-12"
               color="blue lighten-2"
               dark
               large
-            >Get Started</v-btn>-->
+              @click="dialog= true"
+            >Contact</v-btn>
           </v-layout>
         </v-parallax>
       </section>
@@ -218,10 +219,59 @@
         </v-layout>
       </v-footer>
     </v-content>
+<!-- CONTACT FORM -->
+     <v-row justify="center">
+    <v-dialog v-model="dialog" persistent max-width="600px">
+      <v-card>
+        <v-card-title>
+          <span class="headline">Contact Form</span>
+        </v-card-title>
+        <v-card-text>
+          
+          <v-container>
+            <v-row>
+              <v-col cols="12" sm="12" md="4">
+                <v-text-field 
+                label="Name*" 
+                required
+                v-model="form.name"
+                ></v-text-field>
+              </v-col>
+              <v-col cols="12" sm="12" md="4">
+                <v-text-field 
+                label="Email*" 
+                required
+                v-model="form.reply_to"
+                ></v-text-field>
+              </v-col>
+
+              <v-col cols="12">
+                <v-text-field 
+                label="Message*" 
+                required
+                v-model="form.message"
+                ></v-text-field>
+              </v-col>
+            </v-row>
+            
+          </v-container>
+          <small>*indicates required field</small>
+        </v-card-text>
+        <v-card-actions>
+          <div class="flex-grow-1"></div>
+          <v-btn color="blue darken-1" text @click="dialog = false">Close</v-btn>
+          <v-btn color="blue darken-1" text @click="getFormData">Send</v-btn>
+        </v-card-actions>
+      </v-card>
+    </v-dialog>
+  </v-row>
+
+
   </v-app>
 </template>
 
 <script>
+import axios from 'axios'
 export default {
   name: "App",
   components: {},
@@ -229,6 +279,12 @@ export default {
     return {
       title: "Z/C",
       test: false,
+      dialog: false,
+      form: {
+        name: '',
+        reply_to: '',
+        message: '',
+      }
     };
   },
   computed: {
@@ -243,6 +299,15 @@ export default {
     },
     mouseOut(){
       this.test = false
+    },
+    getFormData() {
+      const formData = this.form
+      this.dialog = false
+      try {
+        axios.post('https://dwxt1f2tse.execute-api.us-east-1.amazonaws.com/dev/static-site-mailer', formData)
+      } catch(e) {
+        console.log(e)
+      }
     }
   },
 };
