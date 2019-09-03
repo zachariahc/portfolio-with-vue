@@ -1,9 +1,11 @@
 <template>
   <v-app light>
     <v-toolbar>
-      <v-toolbar-title v-text="title" ></v-toolbar-title>
-      <a href="http://www.github.com/zachariahc" class="top-git-icon"><v-icon class="ml-3" size="30" @mouseover="mouseIn" @mouseleave="mouseOut">mdi-github-circle</v-icon></a>
-      <p v-show="test" class="mt-5 git-side-text ml-2" >Click to check out some of my projects!</p>
+      <v-toolbar-title v-text="title"></v-toolbar-title>
+      <a href="http://www.github.com/zachariahc" class="top-git-icon">
+        <v-icon class="ml-3" size="30" @mouseover="mouseIn" @mouseleave="mouseOut">mdi-github-circle</v-icon>
+      </a>
+      <p v-show="test" class="mt-5 git-side-text ml-2">Click to check out some of my projects!</p>
     </v-toolbar>
     <v-content>
       <section>
@@ -15,13 +17,7 @@
             <h1 class="white--text mb-2 display-1 text-center">Zachariah Crowell</h1>
             <div class="subheading mb-4 text-center">Let's build something</div>
             <!-- save button to fire lambda form submit -->
-            <v-btn
-              class="mt-12"
-              color="blue lighten-2"
-              dark
-              large
-              @click="dialog= true"
-            >Contact</v-btn>
+            <v-btn class="mt-12" color="blue lighten-2" dark large @click="dialog= true">Contact</v-btn>
           </v-layout>
         </v-parallax>
       </section>
@@ -68,8 +64,14 @@
                 <div class="headline text-center">Tools/Methods</div>
               </v-card-title>
               <v-card-text>
-              Well versed in the practices of <b>git</b> and <b>github</b>. Used to movements on the ticket board using <b>jira</b> and well acquainted with the <b>agile</b> software development environment.
-              <b>Scrums</b>,<b>sprints</b> and <b>kanban</b> boards a part of my daily routine.
+                Well versed in the practices of
+                <b>git</b> and
+                <b>github</b>. Used to movements on the ticket board using
+                <b>jira</b> and well acquainted with the
+                <b>agile</b> software development environment.
+                <b>Scrums</b>,
+                <b>sprints</b> and
+                <b>kanban</b> boards a part of my daily routine.
               </v-card-text>
             </v-card>
           </v-flex>
@@ -122,32 +124,34 @@
             <img src="./assets/vuelogo.png" style="height: 40px;" />
           </v-flex>
           <v-flex xs6 md2 pa-2>
-            <img src="./assets/aws_logo.png" style="height: 40px;"/>
+            <img src="./assets/aws_logo.png" style="height: 40px;" />
           </v-flex>
         </v-layout>
-
       </section>
       <section>
         <v-parallax src="./assets/bottomsmoke.jpeg" :height="paralaxHeight">
-        <h2 class="text-center headline mt-5">Examples Of Work</h2>
+          <h2 class="text-center headline mt-5">Examples Of Work</h2>
 
-         <v-layout align-center justify-space-around row fill-height class="mt-5" text-center wrap>
-      <v-flex xs12 md3>
-          <a href="https://tesla-mockup.firebaseapp.com/" target="_blank">
-            <img src="./assets/tesla-mockup.png" style="height: 225px;"/>
-          </a>
-      </v-flex>
-      <v-flex xs12 md3>
-          <a href="https://transit-41e17.firebaseapp.com/" target="_blank">
-            <img src="./assets/transit-bandit.png" style="height: 225px;"/>
-          </a>
-      </v-flex>
-      <v-flex xs12 md3>
-          <a href="https://github.com/zachariahc/firebase-function-twilio/blob/master/functions/index.js" target="_blank">
-            <img src="./assets/twilio-thumbnail.png" style="height: 225px;"/>
-          </a>
-      </v-flex>
-    </v-layout>
+          <v-layout align-center justify-space-around row fill-height class="mt-5" text-center wrap>
+            <v-flex xs12 md3>
+              <a href="https://tesla-mockup.firebaseapp.com/" target="_blank">
+                <img src="./assets/tesla-mockup.png" style="height: 225px;" />
+              </a>
+            </v-flex>
+            <v-flex xs12 md3>
+              <a href="https://transit-41e17.firebaseapp.com/" target="_blank">
+                <img src="./assets/transit-bandit.png" style="height: 225px;" />
+              </a>
+            </v-flex>
+            <v-flex xs12 md3>
+              <a
+                href="https://github.com/zachariahc/firebase-function-twilio/blob/master/functions/index.js"
+                target="_blank"
+              >
+                <img src="./assets/twilio-thumbnail.png" style="height: 225px;" />
+              </a>
+            </v-flex>
+          </v-layout>
         </v-parallax>
       </section>
 
@@ -159,11 +163,12 @@
                 <v-card-title primary-title class="layout justify-center">
                   <div class="headline">About</div>
                 </v-card-title>
-                <v-card-text>Beginner to intermediate level web developer. 
-                  Open to new opportunities big or small. Looking primamrily 
+                <v-card-text>
+                  Beginner to intermediate level web developer.
+                  Open to new opportunities big or small. Looking primamrily
                   for full time long term work. Open to long term contracts as well!
-                  <br>
-                  <br>
+                  <br />
+                  <br />
                 </v-card-text>
               </v-card>
             </v-flex>
@@ -203,7 +208,13 @@
                       <v-icon class="blue--text text--lighten-2">mdi-github-circle</v-icon>
                     </v-list-item-action>
                     <v-list-item-content>
-                      <v-list-item-title><a id="git-link" href="https://www.github.com/zachariahc" target="_blank">github portfolio</a></v-list-item-title>
+                      <v-list-item-title>
+                        <a
+                          id="git-link"
+                          href="https://www.github.com/zachariahc"
+                          target="_blank"
+                        >github portfolio</a>
+                      </v-list-item-title>
                     </v-list-item-content>
                   </v-list-item>
                 </v-list>
@@ -219,59 +230,43 @@
         </v-layout>
       </v-footer>
     </v-content>
-<!-- CONTACT FORM -->
-     <v-row justify="center">
-    <v-dialog v-model="dialog" persistent max-width="600px">
-      <v-card>
-        <v-card-title>
-          <span class="headline">Contact Form</span>
-        </v-card-title>
-        <v-card-text>
-          
-          <v-container>
-            <v-row>
-              <v-col cols="12" sm="12" md="4">
-                <v-text-field 
-                label="Name*" 
-                required
-                v-model="form.name"
-                ></v-text-field>
-              </v-col>
-              <v-col cols="12" sm="12" md="4">
-                <v-text-field 
-                label="Email*" 
-                required
-                v-model="form.reply_to"
-                ></v-text-field>
-              </v-col>
+    <!-- CONTACT FORM -->
+    <v-row justify="center">
+      <v-dialog v-model="dialog" persistent max-width="600px">
+        <v-card>
+          <v-card-title>
+            <span class="headline">Contact Form</span>
+          </v-card-title>
+          <v-card-text>
+            <v-container>
+              <v-row>
+                <v-col cols="12" sm="12" md="4">
+                  <v-text-field label="Name*" required v-model="form.name"></v-text-field>
+                </v-col>
+                <v-col cols="12" sm="12" md="4">
+                  <v-text-field label="Email*" required v-model="form.reply_to"></v-text-field>
+                </v-col>
 
-              <v-col cols="12">
-                <v-text-field 
-                label="Message*" 
-                required
-                v-model="form.message"
-                ></v-text-field>
-              </v-col>
-            </v-row>
-            
-          </v-container>
-          <small>*indicates required field</small>
-        </v-card-text>
-        <v-card-actions>
-          <div class="flex-grow-1"></div>
-          <v-btn color="blue darken-1" text @click="dialog = false">Close</v-btn>
-          <v-btn color="blue darken-1" text @click="getFormData">Send</v-btn>
-        </v-card-actions>
-      </v-card>
-    </v-dialog>
-  </v-row>
-
-
+                <v-col cols="12">
+                  <v-text-field label="Message*" required v-model="form.message"></v-text-field>
+                </v-col>
+              </v-row>
+            </v-container>
+            <small>*indicates required field</small>
+          </v-card-text>
+          <v-card-actions>
+            <div class="flex-grow-1"></div>
+            <v-btn color="blue darken-1" text @click="dialog = false">Close</v-btn>
+            <v-btn color="blue darken-1" text @click="getFormData">Send</v-btn>
+          </v-card-actions>
+        </v-card>
+      </v-dialog>
+    </v-row>å
   </v-app>
 </template>
 
 <script>
-import axios from 'axios'
+import axios from "axios";
 export default {
   name: "App",
   components: {},
@@ -281,35 +276,38 @@ export default {
       test: false,
       dialog: false,
       form: {
-        name: '',
-        reply_to: '',
-        message: '',
+        name: "",
+        reply_to: "",
+        message: ""
       }
     };
   },
   computed: {
-    paralaxHeight: function(){
-      const paralaxControl = this.$vuetify.breakpoint.smAndDown ? 1000 : 400
-      return paralaxControl
+    paralaxHeight: function() {
+      const paralaxControl = this.$vuetify.breakpoint.smAndDown ? 1000 : 400;
+      return paralaxControl;
     }
   },
   methods: {
-    mouseIn(){
-      this.test = true
+    mouseIn() {
+      this.test = true;
     },
-    mouseOut(){
-      this.test = false
+    mouseOut() {
+      this.test = false;
     },
     getFormData() {
-      const formData = this.form
-      this.dialog = false
+      const formData = this.form;
+      this.dialog = false;
       try {
-        axios.post('https://dwxt1f2tse.execute-api.us-east-1.amazonaws.com/dev/static-site-mailer', formData)
-      } catch(e) {
-        console.log(e)
+        axios.post(
+          "https://dwxt1f2tse.execute-api.us-east-1.amazonaws.com/dev/static-site-mailer",
+          formData
+        );
+      } catch (e) {
+        console.log(e);
       }
     }
-  },
+  }
 };
 </script>
 
@@ -318,7 +316,7 @@ export default {
   text-decoration: none;
 }
 .top-git-icon:hover {
-  opacity: .5;
+  opacity: 0.5;
 }
 .git-side-text {
   color: rgb(75, 74, 74);
